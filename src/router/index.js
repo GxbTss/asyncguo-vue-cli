@@ -13,7 +13,7 @@ let router = new Router({
       name: 'car',
       component: Car,
       meta: {
-        title: 'car'
+        title: ''
       }
     }
   ]
