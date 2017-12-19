@@ -2,19 +2,33 @@
   <div class="car">
     <pagination :current-page="currentPage" :total-page="totalPage" @pageChange="getPost"></pagination>
     <text-scroll :datalist="data" scrollType="scroll-up"></text-scroll>
+    <button type="button" @click="showModal" name="button">点击显示模态框</button>
+    <modal
+      title="Asyncguo"
+      :show="show"
+      @close="show = false"
+      >
+      <div class="div">
+        归来依旧是少年
+      </div>
+    </modal>
   </div>
 </template>
 
 <script>
-import Pagination from '@/base/Pagination';
+import Pagination from '@/base/Pagination'
+import Modal from '@/base/Modal'
 import TextScroll from '@/base/TextScroll'
+
 export default {
   components: {
     Pagination,
-    TextScroll
+    TextScroll,
+    Modal
   },
   data () {
     return {
+      show: false,
       currentPage: 1,
       totalPage: 121,
       data: [
@@ -26,6 +40,9 @@ export default {
     }
   },
   methods: {
+    showModal () {
+      this.show = true
+    },
     getPost (page) {
       this.currentPage = page
     }
