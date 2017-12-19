@@ -29,7 +29,7 @@ export default {
   props: {
     show: {
       type: Boolean,
-      // required: true,
+      required: true,
       default: true
     },
     confirmText:{
