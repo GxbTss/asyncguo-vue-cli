@@ -12,19 +12,22 @@
         归来依旧是少年
       </div>
     </modal>
+    <loading title="loadings" mode="absolute"></loading>
   </div>
 </template>
 
 <script>
 import Pagination from '@/base/Pagination'
 import Modal from '@/base/Modal'
+import Loading from '@/base/Loading'
 import TextScroll from '@/base/TextScroll'
 
 export default {
   components: {
     Pagination,
     TextScroll,
-    Modal
+    Modal,
+    Loading
   },
   data () {
     return {
