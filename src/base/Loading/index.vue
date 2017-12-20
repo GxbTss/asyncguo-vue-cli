@@ -83,10 +83,7 @@
       font-weight: 500;
       padding: 0 0 8px 0;
       display: block;
-      color: #212121
-
-
-      ;
+      color: #212121;
     }
     &-icon{
       display: block;
