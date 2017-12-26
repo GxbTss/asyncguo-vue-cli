@@ -12,7 +12,7 @@
         归来依旧是少年
       </div>
     </modal>
-    <loading title="loadings" mode="fullscreen"></loading>
+    <loading title="loadings" mode="full"></loading>
   </div>
 </template>
 
