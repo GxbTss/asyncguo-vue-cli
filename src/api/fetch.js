@@ -13,7 +13,7 @@ const Axios = axios.create({
 // 请求拦截器
 Axios.interceptors.request.use(
   config => {
-    if (config.type === 'post') {
+    if (config.method === 'post') {
       // 参数序列化
       config.data = qs.stringify(config.data)
     }
@@ -29,7 +29,6 @@ Axios.interceptors.request.use(
 Axios.interceptors.response.use(
   response => {
     // 对响应数据做处理
-    // const res = response.data
     return response
   },
   error => {

@@ -8,7 +8,7 @@
       :show="show"
       @close="show = false"
       >
-      <div class="div">
+      <div class="modal-slot">
         归来依旧是少年
       </div>
     </modal>
@@ -21,13 +21,15 @@ import Pagination from '@/base/Pagination'
 import Modal from '@/base/Modal'
 import Loading from '@/base/Loading'
 import TextScroll from '@/base/TextScroll'
+import Message from '@/base/Message'
 
 export default {
   components: {
     Pagination,
     TextScroll,
     Modal,
-    Loading
+    Loading,
+    Message
   },
   data () {
     return {
@@ -54,5 +56,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+    .modal-slot{
+        font-size: 15px;
+    }
 </style>

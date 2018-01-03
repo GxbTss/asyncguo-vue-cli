@@ -81,11 +81,12 @@ export default {
   .component-text-scroll{
     background-color: #eee;
     width: 100%;
+      font-size: 15px;
     ul{
       position: relative;
       width: 100%;
-      .px2rem(height, 30);
-      .px2rem(line-height, 30);
+      height: 30px;
+      line-height: 30px;
       overflow: hidden;
       li{
         position: absolute;
