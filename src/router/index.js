@@ -4,17 +4,21 @@ import Config from './config'
 
 Vue.use(Router)
 
-const Car = () => import('@/components/Car')
+const Manage = () => import('@/components/Manage')
 
 let router = new Router({
   routes: [
     {
       path: '/',
-      name: 'car',
-      component: Car,
+      name: 'manage',
+      component: Manage,
       meta: {
-        title: ''
+        title: '基于vue的后台管理系统'
       }
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })
