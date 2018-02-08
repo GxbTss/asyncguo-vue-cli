@@ -103,7 +103,7 @@
               background: #E4F0F1;
           }
           .is-opened{
-              background-color: #E4F0F1;
+              /* background-color: #E4F0F1; */
           }
           .el-submenu__title{
               color: #496A6A !important;

@@ -5,6 +5,7 @@ import Config from './config'
 Vue.use(Router)
 
 const Manage = () => import('@/components/Manage')
+const Login = () => import('@/components/Login')
 
 let router = new Router({
   routes: [
@@ -14,6 +15,14 @@ let router = new Router({
       component: Manage,
       meta: {
         title: '基于vue的后台管理系统'
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: {
+        title: '登录'
       }
     },
     {
