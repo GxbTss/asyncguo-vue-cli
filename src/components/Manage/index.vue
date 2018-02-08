@@ -14,6 +14,7 @@
   import Headers from './../Headers'
   import Slider from './../Slider'
   import Car from './../Car'
+  import  { mapGetters, mapActions }  from 'vuex'
   export default {
     components: {
       Headers,
@@ -24,8 +25,17 @@
       return {}
     },
     computed: {},
-    methods: {},
+    methods: {
+      ...mapActions([
+        'showLoading',
+        'hideLoading'
+      ])
+    },
     created () {
+      this.showLoading()
+      setTimeout(() => {
+        this.hideLoading()
+      }, 1000)
     }
   }
 </script>

@@ -2,17 +2,21 @@
     <div class='login'>
       <div class="login-box">
         <h3>基于vue的后台管理系统</h3>
-        <el-form ref="loginInfo" :model="loginInfo" :rules="rules" size="small" class="login-info">
+        <el-form ref="loginInfo" :model="loginInfo" :rules="rules" size="medium" class="login-info">
           <el-form-item prop="name">
-            <el-input v-model="loginInfo.name" placeholder="用户名"></el-input>
+            <el-input v-model="loginInfo.name" placeholder="用户名" prefix-icon="iconfont icon-user"></el-input>
           </el-form-item>
           <el-form-item prop="pass">
-            <el-input v-model="loginInfo.pass" type="password" placeholder="密码"></el-input>
+            <el-input v-model="loginInfo.pass" type="password" placeholder="密码" prefix-icon="iconfont icon-pass" @keyup.enter.native="submitInfo('loginInfo')"></el-input>
           </el-form-item>
           <el-form-item class="login-info-sub">
-            <el-button type="primary" @click="submitInfo('loginInfo')">登录</el-button>
-            <el-button @click="resetInfo('loginInfo')">重置</el-button>
+            <el-button type="primary" @click="submitInfo('loginInfo')" class="login-info-login">登录</el-button>
+            <!-- <el-button @click="resetInfo('loginInfo')">重置</el-button> -->
           </el-form-item>
+          <div class="login-tips">
+            <p class="login-tips-title">温馨提示：</p>
+            <p class="login-tips-info">账号: admin, 密码: admin</p>
+          </div>
         </el-form>
       </div>
 
@@ -43,7 +47,19 @@
       submitInfo (formName) {
         if (this.loginInfo.name === '' || this.loginInfo.pass === '') {
           this.$message.warning('请输入账号和密码，再进行登录！')
+          return
         }
+        if (this.loginInfo.name === 'admin' && this.loginInfo.pass === 'admin') {
+          this.$message.success('登录成功！')
+          this.$router.push({
+            name: 'manage'
+          })
+        } else {
+          this.$message.error('请输入正确账号和密码！')
+          this.loginInfo.name = ''
+          this.loginInfo.pass = ''
+        }
+
       },
       resetInfo (formName) {
         this.$refs[formName].resetFields()
@@ -65,7 +81,7 @@
       overflow: hidden;
       background-color: #00b1b3;
       &-box{
-        margin-top: -30px;
+        margin-top: -160px;
         text-align: center;
         h3{
           width: 330px;
@@ -79,8 +95,25 @@
         background-color: #fff;
         border-radius: 6px;
         box-shadow: 5px 5px 8px rgba(0, 0, 0, .3);
+        &-login{
+          width: 100%;
+          /* margin-right: 20px; */
+          background-color: #00b1b3;
+        }
         &-sub{
           margin-top: 30px;
+        }
+      }
+      &-tips{
+        padding-bottom: 10px;
+        font-size: 12px;
+        color: #00b1b3;
+        &-title{
+          text-align: left;
+        }
+        &-info{
+          margin-left: 60px;
+          text-align: left;
         }
       }
     }

@@ -4,22 +4,28 @@
           <router-view></router-view>
       </transition>
       <message :text='msgTip.text' :type='msgTip.type' v-show='msgTip.show' :style-info='msgTip.style'></message>
+      <loading mode="fullscreen" v-if="loading.loadingShow"></loading>
   </div>
 </template>
 
 <script>
   import Message from '@/base/Message'
+  import Loading from '@/base/Loading'
   import  { mapGetters, mapActions }  from 'vuex'
 
   export default {
     name: 'app',
     components: {
-      Message
+      Message,
+      Loading
     },
     computed: {
       ...mapGetters([
-        'msgTip'
+        'msgTip',
+        'loading'
       ])
+    },
+    created () {
     }
   }
 </script>
